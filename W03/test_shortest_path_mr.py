@@ -19,8 +19,25 @@ GRAPH = {
 
 
 def scale(graph, k):
+    """
+    Multiply EVERY edge weight by k.
+
+    Every possible route grows by the same factor k,
+    so the ranking of the routes does not change and the shortest route stays the shortest.
+    The distance is therefore predictable. It becomes k times the original.
+    """
+
     return {n: {m: w * k for m, w in edges.items()} for n, edges in graph.items()}
 
 
 def add_constant(graph, k):
+    """
+    Add k to EVERY edge weight.
+
+    This looks similar to scale() but it behaves very differently.
+    A route grows by k times its NUMBER OF EDGES,
+    so routes with more edges are punished more heavily and the shortest route can change completely.
+    The distance is NOT predictable, so this does not give a valid metamorphic relation.
+    """
+
     return {n: {m: w + k for m, w in edges.items()} for n, edges in graph.items()}
