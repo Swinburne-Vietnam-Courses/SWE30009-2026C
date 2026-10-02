@@ -30,4 +30,5 @@ for implementation in (correct_sin_deg, buggy_sin_deg):
     run_metamorphic_tests(implementation, 29.8)
 
 # Floating-point caveat: A correct sum can change when the order changes.
+print(1 + 2 + 3 == 3 + 2 + 1)  # True
 print(0.1 + 0.2 + 0.3 == 0.3 + 0.2 + 0.1)  # False
