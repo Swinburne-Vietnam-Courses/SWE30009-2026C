@@ -3,6 +3,7 @@ Shortest path on an undirected weighted graph.
 
 The graph is a dict: {node: {neighbour: weight, ...}, ...}
 """
+
 import heapq
 
 
@@ -33,6 +34,8 @@ instead of waiting until `end` is POPPED from the queue.
 
 A very common mistake. The first path found is not always the shortest.
 """
+
+
 def distance_buggy(graph, start, end):
     best = {start: 0}
     queue = [(0, start)]
@@ -47,6 +50,6 @@ def distance_buggy(graph, start, end):
             if nd < best.get(neighbour, float("inf")):
                 best[neighbour] = nd
                 if neighbour == end:
-                    return nd          # <-- The bug.
+                    return nd  # <-- The bug.
                 heapq.heappush(queue, (nd, neighbour))
     return best.get(end)

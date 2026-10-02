@@ -6,12 +6,13 @@ Run against the correct version:
 
 Then change TARGET to total_buggy at the top and run again.
 """
+
 import random
 
 from series import total_correct, total_buggy
 
-TARGET = total_correct          # <-- Switch to total_buggy later.
-SOURCE = [3, 7, 12, 6, 8]       # Source test case, from Lecture 05.
+TARGET = total_correct  # <-- Switch to total_buggy later.
+SOURCE = [3, 7, 12, 6, 8]  # Source test case, from Lecture 05.
 
 
 # The usual kind of test: We know the expected output.
@@ -25,8 +26,9 @@ def test_mr1_permutation():
     random.shuffle(follow_up)
     assert TARGET(follow_up) == TARGET(SOURCE)
 
+
 # Adding k to every element adds k * len(L) to the sum.
-def test_mr2_add_constant_to_every_element():    
+def test_mr2_add_constant_to_every_element():
     k = 10
     follow_up = [n + k for n in SOURCE]
     assert TARGET(follow_up) == TARGET(SOURCE) + k * len(SOURCE)
